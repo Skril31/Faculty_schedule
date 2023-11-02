@@ -30,7 +30,7 @@ public class Lessons implements Serializable {
     private Groups groups;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "type")
-    private Lesson_type type;
+    private LessonType type;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "name")
     private Disciplines disciplines;

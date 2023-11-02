@@ -10,12 +10,14 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "Lesson_type")
-public class Lesson_type {
+public class LessonType {
     @Id
+    @Column(name = "id")
+    private Integer id;
     @Column(name = "type")
     private String type;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
-    private List<Teacher_rights> teacherRights;
+    private List<TeacherRights> teacherRights;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
     private List<Lessons> lessons;
 }

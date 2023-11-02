@@ -12,6 +12,8 @@ import java.util.List;
 @Table(name = "Groups")
 public class Groups {
     @Id
+    @Column(name = "id")
+    private Integer id;
     @Column(name = "group")
     private String group;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")

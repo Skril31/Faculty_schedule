@@ -23,7 +23,7 @@ public class Teacher implements Serializable {
     @Column(name = "patronymic")
     private String patronymic;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
-    private List<Teacher_rights> teacherRights;
+    private List<TeacherRights> teacherRights;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
     private List<Lessons> lessons;
 

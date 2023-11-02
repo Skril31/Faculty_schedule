@@ -11,11 +11,11 @@ public interface DisciplineService {
     List<Disciplines> readAll();
 
 
-    Disciplines read(String id);
+    Disciplines read(Integer id);
 
 
-    boolean update(Disciplines disciplines,String id);
+    boolean update(Disciplines disciplines,Integer id);
 
 
-    boolean delete(String id);
+    boolean delete(Integer id);
 }
