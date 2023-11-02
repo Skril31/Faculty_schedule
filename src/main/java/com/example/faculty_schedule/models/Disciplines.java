@@ -12,11 +12,13 @@ import java.util.List;
 @Table(name = "Disciplines")
 public class Disciplines {
     @Id
+    @Column(name = "id")
+    private Integer id;
     @Column(name = "name")
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "discipline")
-    private List<Teacher_rights> teacherRights;
+    private List<TeacherRights> teacherRights;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "disciplines")
     private List<Lessons> lessons;
 }
