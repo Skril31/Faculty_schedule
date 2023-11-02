@@ -1,5 +1,6 @@
 package com.example.faculty_schedule.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,11 +11,11 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "Teachers")
+@Table(name = "teachers")
 public class Teacher implements Serializable {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id_teacher;
     @Column(name = "firstname")
     private String firstname;
@@ -23,8 +24,10 @@ public class Teacher implements Serializable {
     @Column(name = "patronymic")
     private String patronymic;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+    @JsonIgnore
     private List<TeacherRights> teacherRights;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+    @JsonIgnore
     private List<Lessons> lessons;
 
 }

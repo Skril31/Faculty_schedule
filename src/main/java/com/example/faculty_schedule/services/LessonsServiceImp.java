@@ -2,10 +2,13 @@ package com.example.faculty_schedule.services;
 
 import com.example.faculty_schedule.models.Lessons;
 import com.example.faculty_schedule.repository.LessonsRepository;
+import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class LessonsServiceImp implements LessonsService{
     private final LessonsRepository lessonsRepository;
     LessonsServiceImp(LessonsRepository lessonsRepository){

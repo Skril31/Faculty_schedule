@@ -1,14 +1,17 @@
 package com.example.faculty_schedule.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-@Entity
-@Table(name = "Lessons")
+import java.sql.Time;
+
 @Getter
 @Setter
+@Entity
+@Table(name = "lessons")
 public class Lessons implements Serializable {
     @Id
     @Column(name = "id")
@@ -19,20 +22,20 @@ public class Lessons implements Serializable {
     @Column(name = "auditorium")
     private String auditorium;
     @Column(name = "start_time")
-    private String start_time;
+    private Time start_time;
     @Column(name = "end_time")
-    private String end_time;
+    private Time end_time;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_teacher")
     private Teacher teacher;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "group")
+    @JoinColumn(name = "id_group")
     private Groups groups;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "type")
+    @JoinColumn(name = "id_type")
     private LessonType type;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "name")
+    @JoinColumn(name = "id_discipline")
     private Disciplines disciplines;
 
 }

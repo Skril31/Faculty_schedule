@@ -5,20 +5,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Teacher_rights")
+@Table(name = "teacher_rights")
 @Getter
 @Setter
 public class TeacherRights {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
-    @JoinColumn(name = "teacher", referencedColumnName = "id")
+    @JoinColumn(name = "id_teacher", referencedColumnName = "id")
     private Teacher teacher;
     @ManyToOne
-    @JoinColumn(name = "type", referencedColumnName = "id")
+    @JoinColumn(name = "id_type", referencedColumnName = "id")
     private LessonType type;
     @ManyToOne
-    @JoinColumn(name = "discipline", referencedColumnName = "id")
+    @JoinColumn(name = "id_discipline", referencedColumnName = "id")
     private Disciplines discipline;
 }
