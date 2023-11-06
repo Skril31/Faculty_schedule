@@ -1,5 +1,6 @@
 package com.example.faculty_schedule.services;
 
+import com.example.faculty_schedule.models.Groups;
 import com.example.faculty_schedule.models.Lessons;
 import com.example.faculty_schedule.repository.LessonsRepository;
 import lombok.Setter;
@@ -31,6 +32,30 @@ public class LessonsServiceImp implements LessonsService{
             return lessons.get();
         }
         return null;
+    }
+
+    @Override
+    public List<Lessons> findLessonsByGroupsIdGroupAndWeekDay(Integer id_group, String day) {
+        List<Lessons> lessons = lessonsRepository.findLessonsByGroupsIdGroupAndWeekDay(id_group, day);
+        return lessons;
+    }
+
+    @Override
+    public List<Lessons> findLessonsByGroupsIdGroup(Integer id) {
+        List<Lessons> lessons = lessonsRepository.findLessonsByGroupsIdGroup(id);
+        return lessons;
+    }
+
+    @Override
+    public List<Lessons> findLessonsByGroupsIdGroupAndWeekDayOrderByStartTime(Integer id, String day) {
+        List<Lessons> lessons = lessonsRepository.findLessonsByGroupsIdGroupAndWeekDayOrderByStartTime(id, day);
+        return lessons;
+    }
+
+    @Override
+    public List<Lessons> findLessonsByGroupsIdGroupOrderByStartTime(Integer id) {
+        List<Lessons> lessons = findLessonsByGroupsIdGroupOrderByStartTime(id);
+        return lessons;
     }
 
     @Override

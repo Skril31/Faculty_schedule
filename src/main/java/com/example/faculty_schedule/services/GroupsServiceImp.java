@@ -35,7 +35,7 @@ public class GroupsServiceImp implements GroupsService{
     @Override
     public boolean update(Groups groups, Integer id) {
         if (groupRepository.existsById(id)){
-            groups.setId_group(id);
+            groups.setIdGroup(id);
             groupRepository.save(groups);
             return true;
         }

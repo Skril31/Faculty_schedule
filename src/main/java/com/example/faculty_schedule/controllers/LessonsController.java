@@ -39,7 +39,20 @@ public class LessonsController {
                 ? new ResponseEntity<>(lessons,HttpStatus.OK)
                 :new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
+    @GetMapping(value = "/lessons/group/{id_group}/day/{day}")
+    public ResponseEntity<?> findByGroupIdAndWeekDay(@PathVariable(name = "id_group") Integer id_group, @PathVariable(name = "day") String day){
+        final List<Lessons> lessons = lessonsService.findLessonsByGroupsIdGroupAndWeekDayOrderByStartTime(id_group, day);
+        return lessons != null && !lessons.isEmpty()
+                ? new ResponseEntity<>(lessons,HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    @GetMapping(value = "/lessons/group/{id_group}")
+    public ResponseEntity<?> findByGroupId(@PathVariable(name = "id_group") Integer id_group){
+        final List<Lessons> lessons = lessonsService.findLessonsByGroupsIdGroupOrderByStartTime(id_group);
+        return lessons != null && !lessons.isEmpty()
+                ? new ResponseEntity<>(lessons,HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
     @PutMapping(value = "/lessons/{id}")
     public ResponseEntity<?> update(@PathVariable(name = "id") int id,@RequestBody Lessons lessons){
         final boolean updated = lessonsService.update(lessons,id);

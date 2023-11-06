@@ -17,13 +17,13 @@ public class Lessons implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "week_day")
-    private String week_day;
+    private String weekDay;
     @Column(name = "auditorium")
     private String auditorium;
     @Column(name = "start_time")
-    private Time start_time;
+    private Time startTime;
     @Column(name = "end_time")
-    private Time end_time;
+    private Time endTime;
 
     @Override
     public String toString() {

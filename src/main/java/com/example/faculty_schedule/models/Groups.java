@@ -15,7 +15,7 @@ public class Groups {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_group;
+    private Integer idGroup;
     @Column(name = "group_name")
     private String group;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
