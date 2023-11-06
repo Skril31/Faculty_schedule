@@ -16,7 +16,7 @@ public class Groups {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_group;
-    @Column(name = "group")
+    @Column(name = "group_name")
     private String group;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
     @JsonIgnore
