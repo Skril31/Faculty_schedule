@@ -35,7 +35,7 @@ public class LessonTypeServiceImp implements LessonTypeService{
     @Override
     public boolean update(LessonType lessonType, Integer id) {
         if (lessonTypeRepository.existsById(id)){
-            lessonType.setId(id);
+            lessonType.setId_type(id);
             lessonTypeRepository.save(lessonType);
             return true;
         }

@@ -15,7 +15,7 @@ public class Disciplines {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_discipline;
 
     @Column(name = "name")
     private String name;
@@ -24,6 +24,6 @@ public class Disciplines {
     @JsonIgnore
     private List<TeacherRights> teacherRights;
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "disciplines")
+    @OneToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH}, mappedBy = "disciplines")
     private List<Lessons> lessons;
 }

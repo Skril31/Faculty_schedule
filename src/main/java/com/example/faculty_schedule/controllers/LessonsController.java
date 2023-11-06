@@ -2,12 +2,10 @@ package com.example.faculty_schedule.controllers;
 
 import com.example.faculty_schedule.models.Lessons;
 import com.example.faculty_schedule.services.LessonsService;
+import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +29,32 @@ public class LessonsController {
         return lessons != null && !lessons.isEmpty()
                 ? new ResponseEntity<>(lessons,HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping(value = "/lessons/{id}")
+    public ResponseEntity<Lessons> read(@PathVariable(name = "id") int id){
+        final Lessons lessons = lessonsService.read(id);
+
+        return lessons != null
+                ? new ResponseEntity<>(lessons,HttpStatus.OK)
+                :new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping(value = "/lessons/{id}")
+    public ResponseEntity<?> update(@PathVariable(name = "id") int id,@RequestBody Lessons lessons){
+        final boolean updated = lessonsService.update(lessons,id);
+
+        return updated
+                ? new ResponseEntity<>(HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+
+    @DeleteMapping(value = "/lessons/{id}")
+    public ResponseEntity<?> delete(@PathVariable(name = "id") int id){
+        final boolean deleted = lessonsService.delete(id);
+
+        return deleted
+                ? new ResponseEntity<>(HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 }

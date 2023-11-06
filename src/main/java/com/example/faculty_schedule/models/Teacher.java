@@ -15,7 +15,7 @@ import java.util.List;
 public class Teacher implements Serializable {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_teacher;
     @Column(name = "firstname")
     private String firstname;
@@ -26,7 +26,7 @@ public class Teacher implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
     @JsonIgnore
     private List<TeacherRights> teacherRights;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+    @OneToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH}, mappedBy = "teacher")
     @JsonIgnore
     private List<Lessons> lessons;
 

@@ -35,7 +35,7 @@ public class DisciplineServiceImp implements DisciplineService{
     @Override
     public boolean update(Disciplines disciplines, Integer id) {
         if (disciplinesRepository.existsById(id)){
-            disciplines.setId(id);
+            disciplines.setId_discipline(id);
             disciplinesRepository.save(disciplines);
             return true;
         }
