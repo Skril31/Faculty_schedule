@@ -1,6 +1,5 @@
 package com.example.faculty_schedule.controllers;
 
-import com.example.faculty_schedule.models.Groups;
 import com.example.faculty_schedule.models.TeacherRights;
 import com.example.faculty_schedule.services.TeacherRightsService;
 import org.springframework.http.HttpStatus;

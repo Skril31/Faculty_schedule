@@ -1,6 +1,5 @@
 package com.example.faculty_schedule.services;
 
-import com.example.faculty_schedule.models.Disciplines;
 import com.example.faculty_schedule.models.Groups;
 
 import java.util.List;

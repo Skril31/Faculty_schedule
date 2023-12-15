@@ -1,6 +1,5 @@
 package com.example.faculty_schedule.services;
 
-import com.example.faculty_schedule.models.LessonType;
 import com.example.faculty_schedule.models.TeacherRights;
 import com.example.faculty_schedule.repository.TeacherRightsRepository;
 import org.springframework.stereotype.Service;

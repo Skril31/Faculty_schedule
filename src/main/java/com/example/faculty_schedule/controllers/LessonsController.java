@@ -2,7 +2,6 @@ package com.example.faculty_schedule.controllers;
 
 import com.example.faculty_schedule.models.Lessons;
 import com.example.faculty_schedule.services.LessonsService;
-import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
